@@ -1,0 +1,162 @@
+.heading-frame {
+    background-color: #F3F3F3;
+    background-image: linear-gradient(90deg, #F3F3F3, #fbfbfb, #F3F3F3);
+	padding: 1rem;
+    width: 100%;
+}
+
+.button {
+    border-radius: 20px;
+    margin: 15px;
+    width: 120px;
+}
+
+.iconButtonSave {
+    color: #fff;
+    margin-right: 5px;
+}
+
+.divPrimary {
+    background-color: rgb(248, 249, 250);
+    /* display: block; */
+    padding: 15px 15px 0 15px;
+}
+
+.padding-0 {
+    padding: 0px;
+}
+
+.padding-15 {
+    padding: 15px;
+}
+
+.divField {
+    color: #264173;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.cardTitle {
+    display: flex;
+    gap: 10px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.iconTitle {
+    color: #264173;
+    font-size: 34px;
+    margin-top: 10px;
+}
+
+.title {
+    color: #264173;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.subTitle {
+    color: #264173;
+    font-size: 14px;
+}
+
+.tableStyle {
+    background: white;
+    margin: 0px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    /* border: 1px solid rgb(53, 52, 52); */
+    overflow: hidden;
+}
+
+.cellHeader {
+    background-color: #0b4fa9;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.cellCenter {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btnButtonMini {
+	background-color: #124ca6;
+	border-radius: 25px;
+	color: white;
+	cursor: pointer;
+	height: 35px;
+    margin: 1px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	transition: 0.7s;
+}
+
+.btnButtonMini:hover {
+	background-color: #2460af;
+	transition: 0.7s;
+}
+
+.btnTop {
+    border-radius: 20px;
+    margin: 0px 2px 5px 2px;
+    width: 120px;
+}
+
+.pag {
+    color: #264173;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.iconPag {
+    cursor: pointer;
+    font-size: 24px;
+    padding: 4px;
+    position: relative;
+    top: 3px;
+
+}
+
+.marginPag {
+    margin: 3px;
+}
+
+.modalBody {
+    background-color: #f9f9f9;
+    /* height: 500px;
+    overflow-y: auto; */
+    padding: 20px;
+}
+
+.btnButtonModal {
+	background-color: #0c5ec9;
+	border: #172877 solid 1px;
+	border-radius: 25px;
+	color: white;
+	font-size: 12pt;
+	height: 35px;
+	transition: 0.7s;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 120px;
+}
+
+.btnButtonModal:hover {
+	background-color: #174063;
+	transition: 0.7s;
+}
+
+.divScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.imgPhoto {
+    border: 1px solid #ced4da;
+    border-radius: 7px;
+}
