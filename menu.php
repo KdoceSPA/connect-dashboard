@@ -93,8 +93,8 @@
   <script src="dist/js/pages/dashboard.js"></script>
   <!-- Sweet Alert 2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!-- Fenix -->
-  <script src="dist/js/fenix.js"></script>
+  <!-- Connect -->
+  <script src="dist/js/connect.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

@@ -110,5 +110,123 @@
                 return $data;
             }
         }
+
+        function getAllUsers($endpoint, $token) {
+            // URL del endpoint
+            $urlEndPoint = $endpoint . '/allUsers';
+
+            // Inicializar cURL
+            $ch = curl_init();
+
+            // Establecer opciones para la petición (GET)
+            curl_setopt($ch, CURLOPT_URL, $urlEndPoint); // Adjuntamos datos JSON a la URL
+            curl_setopt($ch, CURLOPT_HTTPHEADER, ["token: $token"]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+            // Realizar la petición GET
+            $response = curl_exec($ch);
+
+            // Verificar petición
+            if (curl_errno($ch)) {
+                // Error
+                // die('Error al realizar la petición: ' . curl_error($ch));
+
+                // Cerrar la sesión cURL
+                curl_close($ch);
+
+                return null;
+            }
+            else {
+                // Cerrar la sesión cURL
+                curl_close($ch);
+
+                // Decodificar la respuesta JSON
+                $data = json_decode($response, true);
+
+                // Procesar datos recibidos
+                return $data;
+            }
+        }
+
+        function getAllEvents($endpoint, $token) {
+            // URL del endpoint
+            $urlEndPoint = $endpoint . '/events/all';
+
+            // Inicializar cURL
+            $ch = curl_init();
+
+            // Establecer opciones para la petición (GET)
+            // curl_setopt($ch, CURLOPT_URL, $urlEndPoint); // Adjuntamos datos JSON a la URL
+            curl_setopt($ch, CURLOPT_URL, $urlEndPoint); // Adjuntamos datos JSON a la URL
+            curl_setopt($ch, CURLOPT_HTTPHEADER, ["token: $token"]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+            // Realizar la petición GET
+            $response = curl_exec($ch);
+
+            // Verificar petición
+            if (curl_errno($ch)) {
+                // Error
+                // die('Error al realizar la petición: ' . curl_error($ch));
+
+                // Cerrar la sesión cURL
+                curl_close($ch);
+
+                return null;
+            }
+            else {
+                // Cerrar la sesión cURL
+                curl_close($ch);
+
+                // Decodificar la respuesta JSON
+                $data = json_decode($response, true);
+
+                // Procesar datos recibidos
+                // return $urlEndPoint;
+                return $data;
+            }
+        }
+
+        function getWeightings($endpoint, $token) {
+            // URL del endpoint
+            $urlEndPoint = $endpoint . '/weightings';
+
+            // Inicializar cURL
+            $ch = curl_init();
+
+            // Establecer opciones para la petición (GET)
+            // curl_setopt($ch, CURLOPT_URL, $urlEndPoint); // Adjuntamos datos JSON a la URL
+            curl_setopt($ch, CURLOPT_URL, $urlEndPoint); // Adjuntamos datos JSON a la URL
+            curl_setopt($ch, CURLOPT_HTTPHEADER, ["token: $token"]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+            // Realizar la petición GET
+            $response = curl_exec($ch);
+
+            // Verificar petición
+            if (curl_errno($ch)) {
+                // Error
+                // die('Error al realizar la petición: ' . curl_error($ch));
+
+                // Cerrar la sesión cURL
+                curl_close($ch);
+
+                return null;
+            }
+            else {
+                // Cerrar la sesión cURL
+                curl_close($ch);
+
+                // Decodificar la respuesta JSON
+                $data = json_decode($response, true);
+
+                // Procesar datos recibidos
+                // return $urlEndPoint;
+                return $data;
+            }
+        }
     }
 ?>
