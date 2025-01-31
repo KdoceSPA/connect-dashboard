@@ -34,10 +34,13 @@
       }
       .sidebarStyle{
         background: #f9fafb;
-        /* background: #3873a9; */
-        /* background: linear-gradient(90deg, rgba(0,57,121,1) 5%, rgba(1,65,138,1) 30%, rgba(2,75,158,1) 60%, rgba(3,83,173,1) 90%); */
-        /* background: linear-gradient(90deg, #f9fafb 5%, #dee1e4 30%, #b4b6bb 60%, #dadde6 90%); */
-        /* background: linear-gradient(150deg, #f5f5f5 50%,  #dadde6 50%); */
+        background-image: url('dist/img/fondo2.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-color: rgba(255,255,255,0.3);
+        background-blend-mode: lighten;
       }
       .fontStyle{
         color: #01418a !important;
@@ -144,7 +147,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-header fontStyle">MENU</li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link fontStyleSubMenu">
+            <a href="menu.php?v=inicio" class="nav-link fontStyleSubMenu">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Visión General
@@ -153,7 +156,7 @@
           </li>
           <li class="nav-header fontStyle">FUNCIONES</li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link fontStyleSubMenu">
+            <a href="#" class="nav-link fontStyleSubMenu">
               <i class="nav-icon fas fa-network-wired"></i>
               <p>
                 Crear Grupo
@@ -161,7 +164,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link fontStyleSubMenu">
+            <a href="#" class="nav-link fontStyleSubMenu">
               <i class="nav-icon fas fa-upload"></i>
               <p>
                 Mis Recursos
@@ -169,7 +172,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link fontStyleSubMenu">
+            <a href="#" class="nav-link fontStyleSubMenu">
               <i class="nav-icon fas fa-calendar"></i>
               <p>
                 Calendario
@@ -178,7 +181,7 @@
           </li>
           <li class="nav-header fontStyle">AJUSTES</li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link fontStyleSubMenu">
+            <a href="#" class="nav-link fontStyleSubMenu">
               <i class="nav-icon fas fa-bars"></i>
               <p>
                 Orden de Grupos
@@ -186,7 +189,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link fontStyleSubMenu">
+            <a href="#" class="nav-link fontStyleSubMenu">
               <i class="nav-icon fas fa-bars"></i>
               <p>
                 Orden de Dispositivos
@@ -194,7 +197,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link fontStyleSubMenu">
+            <a href="#" class="nav-link fontStyleSubMenu">
               <i class="nav-icon fas fa-lock"></i>
               <p>
                 Permisos

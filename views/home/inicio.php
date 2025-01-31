@@ -74,8 +74,8 @@
             <div class="row">
                 <div class="card col-md-12">
                     <div class="card-header">
-                        <h2 class="card-title" style="color: #195ca6;"><i class="fas fa-university"></i> Colegios</h2>
                         <button class="btnButtonModal" style="float: right;" onclick="showWeightings()"><i class="fas fa-calculator"></i> Ponderaciones</button>
+                        <h5 style="color: #195ca6;"><i class="fas fa-university"></i> Colegios</h5>
                     </div>
 
                     <div class="card-body p-0">
@@ -95,71 +95,71 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($schools['data']['data'] as $a => $school) {
-                                        echo "<tr onclick='showDetails(" . ($a + 1) . ")' style='cursor: pointer;'>
-                                                <td style='color: #195ca6;'><b>" . ($a + 1) . "</b></td>
-                                                <td>" . $school['nombre'] . "</td>
-                                                <td class='text-center'>" . $school['grupos'] . "</td>
-                                                <td class='text-center'>
-                                                    <div class='progress progress-xs'>
-                                                        <div class='progress-bar bg-success' style='width: " . $school['porcentaje_activados'] . ";'></div>
-                                                    </div> " . $school['activados'] . ' de ' . $school['dispositivos'] . "
-                                                </td>
+                                        foreach ($schools['data']['data'] as $a => $school) {
+                                            echo "<tr onclick='showDetails(" . ($a + 1) . ")' style='cursor: pointer;'>
+                                                    <td style='color: #195ca6;'><b>" . ($a + 1) . "</b></td>
+                                                    <td>" . $school['nombre'] . "</td>
+                                                    <td class='text-center'>" . $school['grupos'] . "</td>
+                                                    <td class='text-center'>
+                                                        <div class='progress progress-xs'>
+                                                            <div class='progress-bar bg-success' style='width: " . $school['porcentaje_activados'] . ";'></div>
+                                                        </div> " . $school['activados'] . ' de ' . $school['dispositivos'] . "
+                                                    </td>
                                                     <td class='text-center'>" . $school['adminAula'] . "</td>
                                                     <td class='text-center'>" . $school['aulaAdmin'] . "</td>
                                                     <td class='text-center'>" . $school['uso'] . "</td>
                                                     <td class='text-center' style='color: " . $school['color'] . ";'><b>" . $school['frecuencia'] . "</b></td>
                                                 </tr>
                                                 <tr>
-                                                <td id='tblDetails" . ($a + 1) . "' colspan='8' style='background-color: #f2f2f2; display: none;'>
-                                                    <table class='table'>
-                                                        <thead>
-                                                            <tr>
-                                                                <th colspan='5' class='text-center' style='background-color: #fff; color: #195ca6;'>Administración</th>
-                                                            </tr>
-                                                            <tr>
-                                                                <th class='text-center' style='background-color: #195ca6; color: #fff;'>#</th>
-                                                                <th class='text-center' style='background-color: #195ca6; color: #fff;'>Calendario de Eventos</th>
-                                                                <th class='text-center' style='background-color: #195ca6; color: #fff;'>Calendario de Timbres</th>
-                                                                <th class='text-center' style='background-color: #195ca6; color: #fff;'>Alertas</th>
-                                                                <th class='text-center' style='background-color: #195ca6; color: #fff;'>Mensajeria en Tiempo Real</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class='text-center' style='background-color: #fff;'>Interacciones</td>
-                                                                <td class='text-center' style='background-color: #fff;'>" . $school['eventos'] . "</td>
-                                                                <td class='text-center' style='background-color: #fff;'>" . $school['timbres'] . "</td>
-                                                                <td class='text-center' style='background-color: #fff;'>" . $school['recursos_enviados'] . "</td>
-                                                                <td class='text-center' style='background-color: #fff;'>" . $school['mensajes_utp'] . "</td>
-                                                            </tr>
-                                                        <tbody>
-                                                    </table>
+                                                    <td id='tblDetails" . ($a + 1) . "' colspan='8' style='background-color: #f2f2f2; display: none;'>
+                                                        <table class='table'>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan='5' class='text-center' style='background-color: #fff; color: #195ca6; height: 20px; padding: 5px;'>Administración</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>#</th>
+                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Calendario de Eventos<br>(50%)</th>
+                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Calendario de Timbres<br>(15%)</th>
+                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Alertas<br>(20%)</th>
+                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Mensajeria en Tiempo Real<br>(15%)</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class='text-center' style='background-color: #fff;'>Interacciones</td>
+                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['eventos'] . "</td>
+                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['timbres'] . "</td>
+                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['recursos_enviados'] . "</td>
+                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['mensajes_utp'] . "</td>
+                                                                </tr>
+                                                            <tbody>
+                                                        </table>
 
-                                                    <table class='table'>
-                                                        <thead>
-                                                            <tr>
-                                                                <th colspan='4' class='text-center' style='background-color: #fff; color: #195ca6;'>Salas</th>
-                                                            </tr>
-                                                            <tr>
-                                                                <th class='text-center' style='background-color: #195ca6; color: #fff;'>#</th>
-                                                                <th class='text-center' style='background-color: #195ca6; color: #fff;'>Alerta Medica</th>
-                                                                <th class='text-center' style='background-color: #195ca6; color: #fff;'>Alerta Conductual</th>
-                                                                <th class='text-center' style='background-color: #195ca6; color: #fff;'>Mensaje Instantaneo</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class='text-center' style='background-color: #fff;'>Interacciones</td>
-                                                                <td class='text-center' style='background-color: #fff;'>" . $school['emergencias_medicas'] . "</td>
-                                                                <td class='text-center' style='background-color: #fff;'>" . $school['emergencias_conductuales'] . "</td>
-                                                                <td class='text-center' style='background-color: #fff;'>" . $school['mensajes_connect'] . "</td>
-                                                            </tr>
-                                                        <tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>";
-                                    }
+                                                        <table class='table'>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan='4' class='text-center' style='background-color: #fff; color: #195ca6; height: 20px; padding: 5px;'>Salas</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>#</th>
+                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Alerta Medica<br>(15%)</th>
+                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Alerta Conductual<br>(15%)</th>
+                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Mensaje Instantaneo<br>(70%)</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class='text-center' style='background-color: #fff;'>Interacciones</td>
+                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['emergencias_medicas'] . "</td>
+                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['emergencias_conductuales'] . "</td>
+                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['mensajes_connect'] . "</td>
+                                                                </tr>
+                                                            <tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>";
+                                        }
                                     ?>
                                 </tbody>
                             </table>
@@ -178,122 +178,84 @@
             <div class="modal-header">
                 <h5 class="modal-title" style="color: #195ca6;"><i class="fa fa-calculator"></i> Ponderaciones</h5>
             </div>
-            <div class="modal-body modalBody" style="background-color: #f9f9f9; height: 400px; overflow-y: auto; padding: 20px;">
-                <div class="card col-md-12">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th colspan="6" class="rowHead" style="height: 20px; padding: 5px;">Administración - Aulas</th>
-                                </tr>
-                                <tr>
-                                    <th style="background-color: #195ca6; color: #fff; text-align:center;">Mínimo</th>
-                                    <th style="background-color: #195ca6; color: #fff; text-align:center;">Máximo</th>
-                                    <th style="background-color: #195ca6; color: #fff; text-align:center;">Calendario<br>de Eventos</th>
-                                    <th style="background-color: #195ca6; color: #fff; text-align:center;">Calendario<br>de Timbres</th>
-                                    <th style="background-color: #195ca6; color: #fff; text-align:center;">Alertas</th>
-                                    <th style="background-color: #195ca6; color: #fff; text-align:center;">Mensajeria en Tiempo Real</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                </tr>
-                                <tr>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                </tr>
-                                <tr>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                </tr>
-                                <tr>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                </tr>
-                                <tr>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <div class="modal-body modalBody" style="background-color: #f9f9f9; height: 470px; padding: 20px;">
+                <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="custom-content-below-home-tab" data-toggle="pill" href="#custom-content-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">Administrativa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">Salas</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="custom-content-below-tabContent">
+                    <div class="tab-pane fade active show" id="custom-content-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
+                        <div id="tabAdministrative" class="card col-md-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="6" class="rowHead" style="height: 20px; padding: 5px;">Administración - Aulas</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #195ca6; color: #fff; text-align:center;">Mínimo</th>
+                                            <th style="background-color: #195ca6; color: #fff; text-align:center;">Máximo</th>
+                                            <th style="background-color: #195ca6; color: #fff; text-align:center;">Calendario<br>de Eventos</th>
+                                            <th style="background-color: #195ca6; color: #fff; text-align:center;">Calendario<br>de Timbres</th>
+                                            <th style="background-color: #195ca6; color: #fff; text-align:center;">Alertas</th>
+                                            <th style="background-color: #195ca6; color: #fff; text-align:center;">Mensajeria en Tiempo Real</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            foreach ($weightings['data']['rowsAdministrative'] as $weighting) {
+                                                echo "<tr>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtIdAdministrative' type='hidden' value='" . $weighting['id'] . "'><input name='txtMinAdministrative' type='text' class='form-control text-center' value='" . $weighting['min'] . "'></td>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtMaxAdministrative' type='text' class='form-control text-center' value='" . $weighting['max'] . "'></td>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtCalendarEventsAdministrative' type='text' class='form-control text-center' value='" . $weighting['calendar_events'] . "'></td>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtCalendarBellsAdministrative' type='text' class='form-control text-center' value='" . $weighting['calendar_bells'] . "'></td>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtAlertsAdministrative' type='text' class='form-control text-center' value='" . $weighting['alerts'] . "'></td>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtMessagesAdministrative' type='text' class='form-control text-center' value='" . $weighting['messages'] . "'></td>
+                                                    </tr>";
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card col-md-12">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th colspan="5" class="rowHead" style="height: 20px; padding: 5px;">Aulas - Administración</th>
-                                </tr>
-                                <tr>
-                                    <th style="background-color: #195ca6; color: #fff; text-align:center;">Mínimo</th>
-                                    <th style="background-color: #195ca6; color: #fff; text-align:center;">Máximo</th>
-                                    <th style="background-color: #195ca6; color: #fff; text-align:center;">Alerta Medica</th>
-                                    <th style="background-color: #195ca6; color: #fff; text-align:center;">Alerta Conductual</th>
-                                    <th style="background-color: #195ca6; color: #fff; text-align:center;">Mensajeria en Tiempo Real</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                </tr>
-                                <tr>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                </tr>
-                                <tr>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                </tr>
-                                <tr>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                </tr>
-                                <tr>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                    <td style="height: 20px; padding: 7px"><input id="" type="text" class="form-control text-center" value=""></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
+                        <div id="tabHalls" class="card col-md-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="5" class="rowHead" style="height: 20px; padding: 5px;">Aulas - Administración</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #195ca6; color: #fff; text-align:center;">Mínimo</th>
+                                            <th style="background-color: #195ca6; color: #fff; text-align:center;">Máximo</th>
+                                            <th style="background-color: #195ca6; color: #fff; text-align:center;">Alerta Medica</th>
+                                            <th style="background-color: #195ca6; color: #fff; text-align:center;">Alerta Conductual</th>
+                                            <th style="background-color: #195ca6; color: #fff; text-align:center;">Mensajeria en Tiempo Real</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            foreach ($weightings['data']['rowsHalls'] as $weighting) {
+                                                echo "<tr>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtIdHalls' type='hidden' value='" . $weighting['id'] . "'><input name='txtMinHalls' type='text' class='form-control text-center' value='" . $weighting['min'] . "'></td>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtMaxHalls' type='text' class='form-control text-center' value='" . $weighting['max'] . "'></td>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtCalendarEventsHalls' type='text' class='form-control text-center' value='" . $weighting['medical_alert'] . "'></td>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtAlertsHalls' type='text' class='form-control text-center' value='" . $weighting['behavioral_alert'] . "'></td>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtMessagesHalls' type='text' class='form-control text-center' value='" . $weighting['messages'] . "'></td>
+                                                    </tr>";
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

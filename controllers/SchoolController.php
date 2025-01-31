@@ -33,6 +33,7 @@
             $allUsers = $this->model->getAllUsers($this->endpoint, $token);
             $allEvents = $this->model->getAllEvents($this->endpoint, $token);
             $weightings = $this->model->getWeightings($this->endpoint, $token);
+            echo "<script>console.log('".json_encode($weightings)."')</script>";
 
             // Score tables
             $totalcountActivated = 0;
