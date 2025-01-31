@@ -34,7 +34,7 @@
       }
       .sidebarStyle{
         background: #f9fafb;
-        background-image: url('dist/img/fondo2.jpg');
+        background-image: url('dist/img/fondo.jpg');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
