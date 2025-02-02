@@ -15,6 +15,8 @@
         </div>
     </div>
 
+    <input id="token" type="hidden" value="<?php echo $token; ?>">
+
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -77,7 +79,7 @@
                         <button class="btnButtonModal" style="float: right;" onclick="showWeightings()"><i class="fas fa-calculator"></i> Ponderaciones</button>
                         <h5 style="color: #195ca6;"><i class="fas fa-university"></i> Colegios</h5>
                     </div>
-
+                    
                     <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table table-hover">
@@ -246,8 +248,8 @@
                                                 echo "<tr>
                                                         <td style='height: 20px; padding: 7px'><input name='txtIdHalls' type='hidden' value='" . $weighting['id'] . "'><input name='txtMinHalls' type='text' class='form-control text-center' value='" . $weighting['min'] . "'></td>
                                                         <td style='height: 20px; padding: 7px'><input name='txtMaxHalls' type='text' class='form-control text-center' value='" . $weighting['max'] . "'></td>
-                                                        <td style='height: 20px; padding: 7px'><input name='txtCalendarEventsHalls' type='text' class='form-control text-center' value='" . $weighting['medical_alert'] . "'></td>
-                                                        <td style='height: 20px; padding: 7px'><input name='txtAlertsHalls' type='text' class='form-control text-center' value='" . $weighting['behavioral_alert'] . "'></td>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtMedicalAlertsHalls' type='text' class='form-control text-center' value='" . $weighting['medical_alert'] . "'></td>
+                                                        <td style='height: 20px; padding: 7px'><input name='txtBehavioralAlertsHalls' type='text' class='form-control text-center' value='" . $weighting['behavioral_alert'] . "'></td>
                                                         <td style='height: 20px; padding: 7px'><input name='txtMessagesHalls' type='text' class='form-control text-center' value='" . $weighting['messages'] . "'></td>
                                                     </tr>";
                                             }
@@ -260,7 +262,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btnButtonModal" onclick="saveWeightings()"><i class="fas fa-save" aria-hidden="true"></i> Guardar</button>
+                <button type="button" class="btnButtonModal" onclick="updateWeightings()"><i class="fas fa-save" aria-hidden="true"></i> Guardar</button>
                 <button type="button" class="btnButtonCloseModal" data-dismiss="modal"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Cerrar</button>
             </div>
         </div>

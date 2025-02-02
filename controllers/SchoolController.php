@@ -7,7 +7,14 @@
     $controller = new SchoolController();
     
     // Redirect functions
-    $controller->list();
+    if (!isset($_GET['f'])) {
+        $controller->list();
+    }
+    else {
+        if ($_GET['f'] == 'updateWeightings') {
+            $controller->updateWeightings($_POST['arrFields']);
+        }
+    }
     
     class SchoolController {
         private $server;
@@ -33,7 +40,6 @@
             $allUsers = $this->model->getAllUsers($this->endpoint, $token);
             $allEvents = $this->model->getAllEvents($this->endpoint, $token);
             $weightings = $this->model->getWeightings($this->endpoint, $token);
-            echo "<script>console.log('".json_encode($weightings)."')</script>";
 
             // Score tables
             $totalcountActivated = 0;
@@ -120,6 +126,11 @@
 
             $percentTotalCountActivated = ($totalDevices == 0) ? '0%' : number_format($totalcountActivated / $totalDevices * 100, 1, ',', '.');
             require_once 'views/home/inicio.php';
+        }
+
+        public function updateWeightings() {
+            $response = json_encode($this->model->updateWeightings($this->endpoint, $_POST['token'], $_POST['arrFields']));
+            echo $response;
         }
     }
 ?>

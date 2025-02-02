@@ -228,5 +228,51 @@
                 return $data;
             }
         }
+
+        function updateWeightings($endpoint, $token, $arrFields) {
+            // URL del endpoint
+            $urlEndPoint = $endpoint . '/weightings';
+
+            // Datos a enviar
+            $data = array(
+                'arrFields' => $arrFields
+            );
+
+            // Convertir los datos a JSON
+            $jsonData = json_encode($data);
+
+            // Inicializar cURL
+            $ch = curl_init();
+
+            // Establecer opciones para la petición (POST)
+            curl_setopt($ch, CURLOPT_URL, $urlEndPoint);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, ["token: $token", "Content-Type: application/json"]);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+            // Realizar la petición
+            $response = curl_exec($ch);
+
+            // Verificar petición
+            if (curl_errno($ch)) {
+
+                // Cerrar la sesión cURL
+                curl_close($ch);
+
+                return json_encode(array('backend error'));
+            }
+            else {
+                // Cerrar la sesión cURL
+                curl_close($ch);
+    
+                // Decodificar la respuesta JSON
+                $data = json_decode($response, true);
+    
+                // Procesar datos recibidos
+                return $data;
+            }
+        }
     }
 ?>
