@@ -72,8 +72,8 @@
                 $schools['data']['data'][$a]['timbres'] = $countBells;
                 
                 // Weightings
-                $arrWeightingsAdministrative = json_decode($school['ponderacion_administrativa'], true);
-                $arrWeightingsHalls = json_decode($school['ponderacion_salas'], true);
+                $arrWeightingsAdministrative = $school['ponderacion_administrativa'];
+                $arrWeightingsHalls = $school['ponderacion_salas'];
 
                 // % Table administrative and Admin-Aula
                 $percentCalendarEvents = ($countEvents >= $arrWeightingsAdministrative[0]) ? 50 : $countEvents / $arrWeightingsAdministrative[0] * 50;
