@@ -102,7 +102,7 @@
                                 }
                                 else {
                                     $strDate = substr($key, 19);
-                                    if ($strDate >= $startMonth && $strDate <= $endMonth) {
+                                    if ($strDate >= $startDate && $strDate <= $endDate) {
                                         $arrBells[$key]++;
                                     }
                                 }
