@@ -3,12 +3,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0" style="color: #195ca6;">Estadisticas</h1>
+                    <h1 class="m-0" style="color: #195ca6;">Visión General</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Estadisticas</li>
+                        <li class="breadcrumb-item active">Visión General</li>
                     </ol>
                 </div>
             </div>
@@ -76,6 +76,7 @@
             <div class="row">
                 <div class="card col-md-12">
                     <div class="card-header">
+                        <button class="btnButtonModal" style="float: right;" onclick="showFilter()"><i class="fas fa-filter"></i> Filtro</button>
                         <button class="btnButtonModal" style="float: right;" onclick="showWeightings()"><i class="fas fa-calculator"></i> Ponderaciones</button>
                         <h5 style="color: #195ca6;"><i class="fas fa-university"></i> Colegios</h5>
                     </div>
@@ -95,7 +96,7 @@
                                         <th class="text-center" style="color: #195ca6;">Frecuencia</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tblSchools">
                                     <?php
                                         foreach ($schools['data']['data'] as $a => $school) {
                                             echo "<tr onclick='showDetails(" . ($a + 1) . ")' style='cursor: pointer;'>
@@ -263,6 +264,68 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btnButtonModal" onclick="updateWeightings()"><i class="fas fa-save" aria-hidden="true"></i> Guardar</button>
+                <button type="button" class="btnButtonCloseModal" data-dismiss="modal"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Filter-->
+<div class="modal fade-scale" id="modalFilter" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color: #195ca6;"><i class="fa fa-filter"></i> Filtro</h5>
+            </div>
+            <div class="modal-body modalBody" style="background-color: #f9f9f9; padding: 20px;">
+                <div class="row">
+                    <div class="col-md-4" style="margin-bottom: 10px;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="optDate" id="optDate1">
+                            <label class="form-check-label" for="optDate1" style="color: #195ca6; margin-bottom: 7px;">
+                                Por Día
+                            </label>
+                        </div>
+                        <input id="txtDate" name="txtDate" type="date" class="form-control" placeholder="Seleccione el dia">
+                    </div>
+                    <div class="col-md-4" style="margin-bottom: 10px;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="optDate" id="optDate2">
+                            <label class="form-check-label" for="optDate2" style="color: #195ca6; margin-bottom: 7px;">
+                                Por Meses
+                            </label>
+                        </div>
+                        <select id="selDate" name="selDate[]" class="selectpicker" multiple data-live-search-placeholder="Buscar" data-actions-box="true" data-width="100%" multipleSeparator=";" style="background-image: linear-gradient(360deg, #DFDFDF, #FEFEFE, #FEFEFE, #FEFEFE, #FEFEFE);">
+                            <option value="1">Enero</option>
+                            <option value="2">Febrero</option>
+                            <option value="3">Marzo</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Mayo</option>
+                            <option value="6">Junio</option>
+                            <option value="7">Julio</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Septiembre</option>
+                            <option value="10">Octubre</option>
+                            <option value="11">Noviembre</option>
+                            <option value="12">Diciembre</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4" style="margin-bottom: 10px;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="optDate" id="optDate3">
+                            <label class="form-check-label" for="optDate3" style="color: #195ca6; margin-bottom: 7px;">
+                                Por Año
+                            </label>
+                        </div>
+                        <select class="form-control" id="selDateYear" name="selDateYear">
+                            <option value="" selected>Seleccione</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btnButtonModal" onclick="processFilter()"><i class="fas fa-retweet" aria-hidden="true"></i> Procesar</button>
                 <button type="button" class="btnButtonCloseModal" data-dismiss="modal"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Cerrar</button>
             </div>
         </div>

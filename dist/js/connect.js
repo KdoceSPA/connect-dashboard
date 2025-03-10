@@ -134,3 +134,157 @@ function updateWeightings() {
         }
     });
 }
+
+function showDetailsMonth(title, calendarEvents, calendarBells, resourcesSubmitted, messagesAdministrative, medicalAlerts, behavioralAlerts, messagesHalls) {
+    $('#spanTitle').html(title);
+    $('#valCalendarEvents').html(calendarEvents);
+    $('#valCalendarBells').html(calendarBells);
+    $('#valAlerts').html(resourcesSubmitted);
+    $('#valMessagesAdministrative').html(messagesAdministrative);
+    $('#valMedicalAlerts').html(medicalAlerts);
+    $('#valBehavioralAlerts').html(behavioralAlerts);
+    $('#valMessagesHalls').html(messagesHalls);
+    $('#modalDetails').modal('show');
+}
+
+function showFilter() {
+    $('#optDate1').prop('checked', false);
+    $('#optDate2').prop('checked', false);
+    $('#optDate3').prop('checked', false);
+    $('#txtDate').val('');
+    $('#selDate').val('');
+    $('#selDateYear').val('');
+    $('.filter-option-inner-inner').html('Seleccione');
+    $('#modalFilter').modal('show');
+}
+
+function processFilter() {
+    let arrFields = [];
+    if ($('#optDate1').is(':checked') == false && $('#optDate2').is(':checked') == false && $('#optDate3').is(':checked') == false) {
+        Swal.fire({
+            title: "<div style=\"font-size: 14pt;\">Atención</div>",
+            icon: "warning",
+            width: "400px",
+            html: "<div style=\"font-size: 12pt;\">Debe seleccionar una opcion de filtrado</div>",
+            customClass: {
+                confirmButton: "btnButtonModal"
+            },
+            buttonsStyling: false
+        });
+        return false;
+    }
+    else if ($('#optDate1').is(':checked') && ($('#txtDate').val() == '')) {
+        Swal.fire({
+            title: "<div style=\"font-size: 14pt;\">Atención</div>",
+            icon: "warning",
+            width: "400px",
+            html: "<div style=\"font-size: 12pt;\">Debe seleccionar el dia</div>",
+            customClass: {
+                confirmButton: "btnButtonModal"
+            },
+            buttonsStyling: false
+        });
+        return false;
+    }
+    else if ($('#optDate1').is(':checked') && ($('#txtDate').val() != '')) {
+        arrFields = {
+            'type': 1,
+            'val': $('#txtDate').val()
+        };
+    }
+    else if ($('#optDate2').is(':checked') && ($('#selDate').val() == '')) {
+        Swal.fire({
+            title: "<div style=\"font-size: 14pt;\">Atención</div>",
+            icon: "warning",
+            width: "400px",
+            html: "<div style=\"font-size: 12pt;\">Debe seleccionar el mes o meses</div>",
+            customClass: {
+                confirmButton: "btnButtonModal"
+            },
+            buttonsStyling: false
+        });
+        return false;
+    }
+    else if ($('#optDate2').is(':checked') && ($('#selDate').val() != '')) {
+        arrFields = {
+            'type': 2,
+            'val': JSON.stringify($('#selDate').val())
+        };
+    }
+    else if ($('#optDate3').is(':checked') && ($('#selDateYear').val() == '')) {
+        Swal.fire({
+            title: "<div style=\"font-size: 14pt;\">Atención</div>",
+            icon: "warning",
+            width: "400px",
+            html: "<div style=\"font-size: 12pt;\">Debe seleccionar el año</div>",
+            customClass: {
+                confirmButton: "btnButtonModal"
+            },
+            buttonsStyling: false
+        });
+        return false;
+    }
+    else if ($('#optDate3').is(':checked') && ($('#selDateYear').val() != '')) {
+        arrFields = {
+            'type': 3,
+            'val': $('#selDateYear').val()
+        };
+    }
+
+    $('#loading').show();
+    $.ajax({
+        url: 'controllers/SchoolController.php?f=processFilter',
+        type: 'POST',
+        data: {
+            token: $('#token').val(),
+            arrFields
+        },
+        success: function (response) {
+            $('#loading').hide();
+            try {
+                if (response != '') {
+                    $('#tblSchools').html(response);
+                    $('#modalFilter').modal('hide');
+                    Swal.fire({
+                        title: "<div style=\"font-size: 14pt;\">Hecho</div>",
+                        icon: "success",
+                        width: "400px",
+                        html: "<div style=\"font-size: 12pt;\">Se actualizaron los datos</div>",
+                        timer: 2000,
+                        customClass: {
+                            confirmButton: "btnButtonModal"
+                        },
+                        buttonsStyling: false
+                    });
+                }
+                else {
+                    Swal.fire({
+                        title: "<div style=\"font-size: 14pt;\">Atención</div>",
+                        icon: "warning",
+                        width: "400px",
+                        html: "<div style=\"font-size: 12pt;\">Hubo un error al actualizar</div>",
+                        customClass: {
+                            confirmButton: "btnButtonModal"
+                        },
+                        buttonsStyling: false
+                    });
+                }
+            } catch (error) {
+                Swal.fire({
+                    title: "<div style=\"font-size: 14pt;\">Atención</div>",
+                    icon: "warning",
+                    width: "400px",
+                    html: "<div style=\"font-size: 12pt;\">Hubo un error al actualizar: " + error + "</div>",
+                    customClass: {
+                        confirmButton: "btnButtonModal"
+                    },
+                    buttonsStyling: false
+                });
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            $('#loading').hide();
+            console.log('Error en la solicitud AJAX: ', textStatus, errorThrown);
+        }
+    });
+}

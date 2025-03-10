@@ -27,6 +27,8 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
   <!-- Personal style -->
   <link rel="stylesheet" href="dist/css/style.css">
+  <!-- Select Multiple style -->
+  <link rel="stylesheet" href="dist/css/bootstrap-select.css">
   <style>
       body {
         font-family: 'Poppins', serif;
@@ -98,6 +100,8 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Connect -->
   <script src="dist/js/connect.js"></script>
+  <!-- Select multiple -->
+  <script src="dist/js/bootstrap-select.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -115,7 +119,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="menu.php?v=inicio" class="nav-link">Inicio</a>
+        <a href="menu.php?v=home" class="nav-link">Inicio</a>
       </li>
     </ul>
   </nav>
@@ -147,63 +151,36 @@
                with font-awesome or any other icon font library -->
           <li class="nav-header fontStyle">MENU</li>
           <li class="nav-item">
-            <a href="menu.php?v=inicio" class="nav-link fontStyleSubMenu">
+            <a href="menu.php?v=home" class="nav-link fontStyleSubMenu">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Visión General
               </p>
             </a>
+            <a href="menu.php?v=statistics" class="nav-link fontStyleSubMenu">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Resumen Mensual
+              </p>
+            </a>
           </li>
-          <li class="nav-header fontStyle">FUNCIONES</li>
+          <!-- <li class="nav-header fontStyle">CONFIGURACIÓN</li>
           <li class="nav-item">
             <a href="#" class="nav-link fontStyleSubMenu">
-              <i class="nav-icon fas fa-network-wired"></i>
+              <i class="nav-icon fas fa-calculator"></i>
               <p>
-                Crear Grupo
+                Poderacion por modulo
               </p>
             </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link fontStyleSubMenu">
-              <i class="nav-icon fas fa-upload"></i>
+              <i class="nav-icon fas fa-percent"></i>
               <p>
-                Mis Recursos
+                Porcentaje por modulo
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link fontStyleSubMenu">
-              <i class="nav-icon fas fa-calendar"></i>
-              <p>
-                Calendario
-              </p>
-            </a>
-          </li>
-          <li class="nav-header fontStyle">AJUSTES</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link fontStyleSubMenu">
-              <i class="nav-icon fas fa-bars"></i>
-              <p>
-                Orden de Grupos
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link fontStyleSubMenu">
-              <i class="nav-icon fas fa-bars"></i>
-              <p>
-                Orden de Dispositivos
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link fontStyleSubMenu">
-              <i class="nav-icon fas fa-lock"></i>
-              <p>
-                Permisos
-              </p>
-            </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -251,5 +228,20 @@
 
   })
 </script>
+
+<div id="loading" style="display: none;">
+  <div class="card-body" style="background: rgba(0,0,0,0.5); position: fixed; width: 100%; height: 100%; z-index: 9999; top: 0; left: 0; display: flex; justify-content: center; align-items: center;">
+    <div class="tab-content" id="custom-tabs-five-tabContent">
+      <div class="tab-pane fade active show" id="custom-tabs-five-overlay" role="tabpanel" aria-labelledby="custom-tabs-five-overlay-tab">
+        <div class="card" style="background-color: white; height: 200px; width: 250px; border: 2px solid #195ca6;">
+          <div class="overlay" style="display: flex; flex-direction: column; align-items: center;">
+            <i class="fas fa-3x fa-sync-alt fa-spin" style="color: #195ca6;"></i>
+            <div class="text-bold pt-2" style="color: #195ca6;">Cargando...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

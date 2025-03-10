@@ -5,7 +5,7 @@
     
     // Enrutador
     $error = '';
-    $ruta = trim($_GET['v'] ?? 'inicio'); // Coalescencia nula y trim
+    $ruta = trim($_GET['v'] ?? 'home'); // Coalescencia nula y trim
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
     $domain = $_SERVER['HTTP_HOST'];
     $path = $_SERVER['REQUEST_URI'];
@@ -19,7 +19,7 @@
         $params = null;
     }
 
-    if ($ruta == 'inicio') {
+    if ($ruta == 'home') {
         include ('controllers/SchoolController.php');
     }
     else {
@@ -46,22 +46,6 @@
                 }
                 else {
                     require_once $archivoControlador;
-    
-                    if (!class_exists($controladorNombre)) {
-                        $error = "Error: Clase '$controladorNombre' no encontrada en el archivo.";
-                        include ('views/error/error.php');
-                    }
-                    else {
-                        $controller = new $controladorNombre();
-        
-                        if (!method_exists($controller, $accion)) {
-                            $error = "Error: Método '$accion' no encontrado en el controlador '$controladorNombre'.";
-                            include ('views/error/error.php');
-                        }
-                        else {
-                            $controller->$accion($params);
-                        }
-                    }
                 }
             }
         }
