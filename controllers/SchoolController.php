@@ -275,7 +275,7 @@
             foreach ($schools['data']['data'] as $a => $school) {
                 $html .= "<tr onclick='showDetails(" . ($a + 1) . ")' style='cursor: pointer;'>
                             <td style='color: #195ca6;'><b>" . ($a + 1) . "</b></td>
-                            <td>" . $school['nombre'] . "</td>
+                            <td>" . $school['rbd'] . " - " . $school['nombre'] . "</td>
                             <td class='text-center'>" . $school['grupos'] . "</td>
                             <td class='text-center'>
                                 <div class='progress progress-xs'>

@@ -4,19 +4,14 @@
     error_reporting(E_ALL);
     require_once dirname(__FILE__) . '/../models/StatisticsModel.php';
 
-    $controller = new SchoolController();
+    $controller = new StatisticsController();
     
     // Redirect functions
     if (!isset($_GET['f'])) {
         $controller->list();
     }
-    else {
-        if ($_GET['f'] == 'updateWeightings') {
-            $controller->updateWeightings($_POST['arrFields']);
-        }
-    }
     
-    class SchoolController {
+    class StatisticsController {
         private $server;
         private $endpoint;
         private $model;
@@ -204,11 +199,6 @@
             }
 
             require_once 'views/statistics.php';
-        }
-
-        public function updateWeightings() {
-            $response = json_encode($this->model->updateWeightings($this->endpoint, $_POST['token'], $_POST['arrFields']));
-            echo $response;
         }
     }
 ?>

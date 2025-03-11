@@ -2,7 +2,7 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    
+
     // Enrutador
     $error = '';
     $ruta = trim($_GET['v'] ?? 'home'); // Coalescencia nula y trim
@@ -39,13 +39,13 @@
                 $controladorNombre = ucfirst($partes[0]) . 'Controller';
                 $accion = (count($partes) == 1) ? 'list' : $partes[1];
                 $archivoControlador = 'controllers/' . $controladorNombre . '.php';
-
                 if (!file_exists($archivoControlador)) {
                     $error = "Error: Controlador '$controladorNombre' no encontrado.";
                     include ('views/error/error.php');
                 }
                 else {
-                    require_once $archivoControlador;
+                    $path = dirname(dirname(__FILE__)).'/controllers/StatisticsController.php';
+                    require_once($path);
                 }
             }
         }
