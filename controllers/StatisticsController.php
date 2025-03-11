@@ -107,8 +107,14 @@
                 }
                 
                 // Weightings
-                $arrWeightingsAdministrative = json_decode($school['ponderacion_administrativa_mensual'], true);
-                $arrWeightingsHalls = json_decode($school['ponderacion_salas_mensual'], true);
+                if (gettype($school['ponderacion_administrativa']) == 'array') {
+                    $arrWeightingsAdministrative = $school['ponderacion_administrativa'];
+                    $arrWeightingsHalls = $school['ponderacion_salas'];
+                }
+                else {
+                    $arrWeightingsAdministrative = json_decode($school['ponderacion_administrativa'], true);
+                    $arrWeightingsHalls = json_decode($school['ponderacion_salas'], true);
+                }
                 
                 // Add Events and adminAula per month
                 foreach ($arrEvents as $keyEvent => $event) {

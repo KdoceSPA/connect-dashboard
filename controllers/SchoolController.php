@@ -75,8 +75,14 @@
                 $schools['data']['data'][$a]['timbres'] = $countBells;
                 
                 // Weightings
-                $arrWeightingsAdministrative = json_decode($school['ponderacion_administrativa'], true);
-                $arrWeightingsHalls = json_decode($school['ponderacion_salas'], true);
+                if (gettype($school['ponderacion_administrativa']) == 'array') {
+                    $arrWeightingsAdministrative = $school['ponderacion_administrativa'];
+                    $arrWeightingsHalls = $school['ponderacion_salas'];
+                }
+                else {
+                    $arrWeightingsAdministrative = json_decode($school['ponderacion_administrativa'], true);
+                    $arrWeightingsHalls = json_decode($school['ponderacion_salas'], true);
+                }
 
                 // % Table administrative and Admin-Aula
                 $percentCalendarEvents = ($countEvents >= $arrWeightingsAdministrative[0]) ? 50 : $countEvents / $arrWeightingsAdministrative[0] * 50;
@@ -228,8 +234,14 @@
                 $schools['data']['data'][$a]['timbres'] = $countBells;
                 
                 // Weightings
-                $arrWeightingsAdministrative = json_decode($school['ponderacion_administrativa'], true);
-                $arrWeightingsHalls = json_decode($school['ponderacion_salas'], true);
+                if (gettype($school['ponderacion_administrativa']) == 'array') {
+                    $arrWeightingsAdministrative = $school['ponderacion_administrativa'];
+                    $arrWeightingsHalls = $school['ponderacion_salas'];
+                }
+                else {
+                    $arrWeightingsAdministrative = json_decode($school['ponderacion_administrativa'], true);
+                    $arrWeightingsHalls = json_decode($school['ponderacion_salas'], true);
+                }
 
                 // % Table administrative and Admin-Aula
                 $percentCalendarEvents = ($countEvents >= $arrWeightingsAdministrative[0]) ? 50 : $countEvents / $arrWeightingsAdministrative[0] * 50;
