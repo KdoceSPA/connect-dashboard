@@ -50,7 +50,7 @@
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3><?php echo $totalcountActivated; ?><sup style="font-size: 20px"> (<?php echo $percentTotalCountActivated; ?>%)</sup></h3>
-                            <p>Activos</p>
+                            <p>Dispositivos Activos</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-chart-bar"></i>
@@ -63,7 +63,7 @@
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3><?php echo $totalcountDeactivated; ?><sup style="font-size: 20px"> (<?php echo $percentTotalCountDeactivated; ?>%)</sup></h3>
-                            <p>Inactivos</p>
+                            <p>Dispositivos Inactivos</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-chart-bar"></i>
@@ -76,7 +76,7 @@
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3><?php echo $totalDevices; ?></h3>
-                            <p>Dispositivos</p>
+                            <p>Total Dispositivos</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-tv"></i>
