@@ -19,8 +19,8 @@
 
     <section class="content">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3 col-6">
+            <div class="row justify-content-center">
+                <div class="col" style="flex: 0 0 20%; max-width: 20%;">
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3><?php echo $totalRbds; ?></h3>
@@ -33,21 +33,8 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-6">
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            <h3><?php echo $percentTotalCountActivated; ?><sup style="font-size: 20px">%</sup></h3>
-                            <p>Activos</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <a href="#" class="small-box-footer"></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-6">
-                    <div class="small-box bg-danger">
+                <div class="col" style="flex: 0 0 20%; max-width: 20%;">
+                    <div class="small-box bg-primary">
                         <div class="inner">
                             <h3><?php echo $totalGroups; ?></h3>
                             <p>Grupos</p>
@@ -59,7 +46,33 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-6">
+                <div class="col" style="flex: 0 0 20%; max-width: 20%;">
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3><?php echo $totalcountActivated; ?><sup style="font-size: 20px"> (<?php echo $percentTotalCountActivated; ?>%)</sup></h3>
+                            <p>Activos</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <a href="#" class="small-box-footer"></a>
+                    </div>
+                </div>
+
+                <div class="col" style="flex: 0 0 20%; max-width: 20%;">
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3><?php echo $totalcountDeactivated; ?><sup style="font-size: 20px"> (<?php echo $percentTotalCountDeactivated; ?>%)</sup></h3>
+                            <p>Inactivos</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <a href="#" class="small-box-footer"></a>
+                    </div>
+                </div>
+
+                <div class="col" style="flex: 0 0 20%; max-width: 20%;">
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3><?php echo $totalDevices; ?></h3>
@@ -331,3 +344,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    setTimeout(function() {
+        location.reload();
+    }, 300000); // Reload in 5 min
+</script>

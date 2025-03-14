@@ -133,7 +133,9 @@
                 $totalDevices += $school['dispositivos'];
             }
 
-            $percentTotalCountActivated = ($totalDevices == 0) ? '0%' : number_format($totalcountActivated / $totalDevices * 100, 1, ',', '.');
+            $percentTotalCountActivated = ($totalDevices == 0) ? '0%' : (($totalcountActivated / $totalDevices * 100 > 0 && $totalcountActivated / $totalDevices * 100 < 100) ? number_format($totalcountActivated / $totalDevices * 100, 1, ',', '.') : number_format($totalcountActivated / $totalDevices * 100, 0, ',', '.'));
+            $totalcountDeactivated = $totalDevices - $totalcountActivated;
+            $percentTotalCountDeactivated = ($totalDevices == 0) ? '0%' : (($totalcountDeactivated / $totalDevices * 100 > 0 && $totalcountDeactivated / $totalDevices * 100 < 100) ? number_format($totalcountDeactivated / $totalDevices * 100, 1, ',', '.') : number_format($totalcountDeactivated / $totalDevices * 100, 0, ',', '.'));
             require_once 'views/home.php';
         }
 
