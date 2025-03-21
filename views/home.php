@@ -90,7 +90,7 @@
                 <div class="card col-md-12">
                     <div class="card-header">
                         <button class="btnButtonModal" style="float: right;" onclick="showFilter()"><i class="fas fa-filter"></i> Filtro</button>
-                        <button class="btnButtonModal" style="float: right;" onclick="showWeightings()"><i class="fas fa-calculator"></i> Ponderaciones</button>
+                        <!-- <button class="btnButtonModal" style="float: right;" onclick="showWeightings()"><i class="fas fa-calculator"></i> Ponderaciones</button> -->
                         <h5 style="color: #195ca6;"><i class="fas fa-university"></i> Colegios</h5>
                     </div>
                     

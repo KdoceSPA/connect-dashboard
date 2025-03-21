@@ -157,12 +157,12 @@
                 Visión General
               </p>
             </a>
-            <a href="menu.php?v=statistics" class="nav-link fontStyleSubMenu">
+            <!-- <a href="menu.php?v=statistics" class="nav-link fontStyleSubMenu">
               <i class="nav-icon fas fa-list"></i>
               <p>
                 Resumen Mensual
               </p>
-            </a>
+            </a> -->
           </li>
           <!-- <li class="nav-header fontStyle">CONFIGURACIÓN</li>
           <li class="nav-item">
