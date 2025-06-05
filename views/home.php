@@ -114,7 +114,7 @@
                                         foreach ($schools['data']['data'] as $a => $school) {
                                             echo "<tr onclick='showDetails(" . ($a + 1) . ")' style='cursor: pointer;'>
                                                     <td style='color: #195ca6;'><b>" . ($a + 1) . "</b></td>
-                                                    <td>" . $school['rbd'] . " - " . $school['nombre'] . "</td>
+                                                    <td>" . $school['rbd'] . " - " . $school['nombre'] . " <a href='" . $school['url_connect'] . "' target='_blank' onclick='event.stopPropagation()'> <i class='fa fa-external-link-alt'></i></a></td>
                                                     <td class='text-center'>" . $school['grupos'] . "</td>
                                                     <td class='text-center'>
                                                         <div class='progress progress-xs'>
