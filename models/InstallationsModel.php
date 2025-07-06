@@ -1,11 +1,5 @@
 <?php
     class InstallationsModel {
-        private $conexion;
-
-        public function __construct() {
-
-        }
-
         function getToken($endpoint, $id, $rbd) {
             // URL del endpoint
             $urlEndPoint = $endpoint . '/getToken';

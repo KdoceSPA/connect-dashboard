@@ -30,7 +30,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
   <!-- Personal style -->
-  <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="stylesheet" href="dist/css/style.css?v=1.1">
   <!-- Select Multiple style -->
   <link rel="stylesheet" href="dist/css/bootstrap-select.css">
   <style>
@@ -103,7 +103,7 @@
   <!-- Sweet Alert 2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Connect -->
-  <script src="dist/js/connect.js"></script>
+  <script src="dist/js/connect.js?v=1.1"></script>
   <!-- Select multiple -->
   <script src="dist/js/bootstrap-select.js"></script>
 </head>
