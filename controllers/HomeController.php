@@ -136,7 +136,7 @@
             $percentTotalCountActivated = ($totalDevices == 0) ? '0%' : (($totalcountActivated / $totalDevices * 100 > 0 && $totalcountActivated / $totalDevices * 100 < 100) ? number_format($totalcountActivated / $totalDevices * 100, 1, ',', '.') : number_format($totalcountActivated / $totalDevices * 100, 0, ',', '.'));
             $totalcountDeactivated = $totalDevices - $totalcountActivated;
             $percentTotalCountDeactivated = ($totalDevices == 0) ? '0%' : (($totalcountDeactivated / $totalDevices * 100 > 0 && $totalcountDeactivated / $totalDevices * 100 < 100) ? number_format($totalcountDeactivated / $totalDevices * 100, 1, ',', '.') : number_format($totalcountDeactivated / $totalDevices * 100, 0, ',', '.'));
-            require_once 'views/home.php';
+            require_once 'views/home/home.php';
         }
 
         public function updateWeightings() {

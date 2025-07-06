@@ -181,3 +181,72 @@
     color: #195ca6;
     text-align: center;
 }
+
+.btnAccess {
+    border-radius: 25px !important;
+    width: 100%;
+}
+
+.divLogo {
+    padding: 10px;
+}
+
+.logoAccess {
+    background-color: transparent;
+    border: 0px none transparent;
+    padding: 10px;
+    /* height: 160px;
+    width: 160px; */
+}
+
+.centerDiv {
+	background-color: rgb(249, 249, 249, 0.9);
+	border-radius: 15px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
+	width: 400px;
+}
+
+.bodyAuth {
+    background: url('../img/background.jpg') no-repeat center center fixed;
+	background-color: rgb(236, 236, 236, 0.3);
+	background-blend-mode: lighten;
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: Poppins, Arial, Tahoma;
+	margin: 0;
+}
+
+.divAuth {
+	border-radius: 15px;
+	color: #264173;
+}
+
+.footerAuth {
+    background-color: transparent;
+    font-size:12px;
+    color: #264173;
+    text-align: center;
+    height: auto;
+    margin: 0px;
+}
+
+.imgFlag {
+    border-radius: 2px;
+    height: 18px;
+    width: 30px;
+}
+
+.logoUser {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 50%;
+    color: #264173;
+    font-size: 28px;
+    padding: 1.5px 0 0 1.9px;
+    height: 32px;
+    width: 32px;
+}

@@ -1,3 +1,7 @@
+<?php
+  require_once dirname(__FILE__) . '/config/confirm_session.php';
+	date_default_timezone_set('America/Santiago');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,8 +81,8 @@
   <!-- Sparkline -->
   <script src="plugins/sparklines/sparkline.js"></script>
   <!-- JQVMap -->
-  <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <!-- <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script> -->
   <!-- jQuery Knob Chart -->
   <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
   <!-- daterangepicker -->
@@ -93,9 +97,9 @@
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.js"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js"></script>
+  <!-- <script src="dist/js/demo.js"></script> -->
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="dist/js/pages/dashboard.js"></script>
+  <!-- <script src="dist/js/pages/dashboard.js"></script> -->
   <!-- Sweet Alert 2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Connect -->
@@ -113,13 +117,21 @@
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-dark navbarStyle">
-    <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      <li class="nav-item">
         <a href="menu.php?v=home" class="nav-link">Inicio</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="config/close_session.php" role="button">
+          <i class="fas fa-sign-out-alt"></i>
+          Salir
+        </a>
       </li>
     </ul>
   </nav>
@@ -137,10 +149,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <i class="logoUser fa fa-user-circle" alt="User Image"></i>
         </div>
         <div class="info">
-          <a href="#" class="d-block fontStyle">Administrador</a>
+          <a href="#" class="d-block fontStyle"><?php echo $type_current; ?></a>
         </div>
       </div>
 
@@ -161,6 +173,12 @@
               <i class="nav-icon fas fa-list"></i>
               <p>
                 Resumen Mensual
+              </p>
+            </a>
+            <a href="menu.php?v=installations" class="nav-link fontStyleSubMenu">
+              <i class="nav-icon fas fa-wrench"></i>
+              <p>
+                Instalaciones
               </p>
             </a>
           </li>
@@ -191,16 +209,6 @@
   <?php
     require_once('config/routes.php');
   ?>
-
-  <!-- Content Wrapper. Contains page content -->
-  <!-- <div class="content-wrapper">
-    <div class="input-group date" id="txtfecha" data-target-input="nearest">
-        <input type="text" class="form-control datetimepicker-input" data-target="#txtfecha">
-        <div class="input-group-append" data-target="#txtfecha" data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-        </div>
-    </div>
-  </div> -->
 
   <footer class="main-footer">
     <strong>Copyright &copy; 2025 <a href="https://adminlte.io">Connect</a>.</strong>
