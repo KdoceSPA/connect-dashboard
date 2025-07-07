@@ -6,12 +6,12 @@
 	<meta name="viewport" content="width=1,initial-scale=1,user-scalable=1" />
 	<title>Connect</title>
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="dist/css/style.css">
+    <link rel="stylesheet" href="dist/css/style.css?v=1.1">
 	<link rel="stylesheet" href="dist/css/adminlte.min.css">
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Poppins" />
     <script src="plugins/jquery/jquery.min.js"></script>
     <script src="plugins/sweetalert2/sweetalert2.all.js"></script>
-    <script src="dist/js/connect.js"></script>
+    <script src="dist/js/connect.js?v=1.1"></script>
 </head>
 <body class="bodyAuth">
     <div class="centerDiv">
