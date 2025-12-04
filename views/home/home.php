@@ -102,6 +102,7 @@
                                         <th style="color: #195ca6; width: 10px">#</th>
                                         <th style="color: #195ca6;">Nombre</th>
                                         <th class="text-center" style="color: #195ca6;">Grupos</th>
+                                        <th class="text-center" style="color: #195ca6;">Administración</th>
                                         <th class="text-center" style="color: #195ca6;">Dispositivos</th>
                                         <th class="text-center" style="color: #195ca6;">Admin-Aula</th>
                                         <th class="text-center" style="color: #195ca6;">Aula-Admin</th>
@@ -116,6 +117,7 @@
                                                     <td style='color: #195ca6;'><b>" . ($a + 1) . "</b></td>
                                                     <td>" . $school['rbd'] . " - " . $school['nombre'] . " <a href='" . $school['url_connect'] . "' target='_blank' onclick='event.stopPropagation()'> <i class='fa fa-external-link-alt'></i></a></td>
                                                     <td class='text-center'>" . $school['grupos'] . "</td>
+                                                    <td class='text-center' data-toggle='tooltip' data-placement='top' title='Total de Administradores conectados'>" . ($school['usuarios_utp_conectados'] ?? '0') . "</td>
                                                     <td class='text-center'>
                                                         <div class='progress progress-xs'>
                                                             <div class='progress-bar bg-success' style='width: " . $school['porcentaje_activados'] . ";'></div>
