@@ -1,3 +1,51 @@
+<?php
+function renderSchoolTabContent($idx, $key, $eventos, $timbres, $recursos, $mensajes_utp, $em_medicas, $em_conductuales, $mensajes_connect, $active = false) {
+    $activeClass = $active ? 'active show' : '';
+    return "<div class='tab-pane fade {$activeClass}' id='tab-{$key}-{$idx}' role='tabpanel'>
+        <table class='table'>
+            <thead>
+                <tr><th colspan='5' class='text-center' style='background-color: #fff; color: #195ca6; height: 20px; padding: 5px;'>Administración</th></tr>
+                <tr>
+                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>#</th>
+                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Calendario de Eventos<br>(50%)</th>
+                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Calendario de Timbres<br>(15%)</th>
+                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Alertas<br>(20%)</th>
+                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Mensajeria en Tiempo Real<br>(15%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class='text-center' style='background-color: #fff;'>Interacciones</td>
+                    <td class='text-center' style='background-color: #fff;'>{$eventos}</td>
+                    <td class='text-center' style='background-color: #fff;'>{$timbres}</td>
+                    <td class='text-center' style='background-color: #fff;'>{$recursos}</td>
+                    <td class='text-center' style='background-color: #fff;'>{$mensajes_utp}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class='table'>
+            <thead>
+                <tr><th colspan='4' class='text-center' style='background-color: #fff; color: #195ca6; height: 20px; padding: 5px;'>Salas</th></tr>
+                <tr>
+                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>#</th>
+                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Alerta Medica<br>(15%)</th>
+                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Alerta Conductual<br>(15%)</th>
+                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Mensaje Instantaneo<br>(70%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class='text-center' style='background-color: #fff;'>Interacciones</td>
+                    <td class='text-center' style='background-color: #fff;'>{$em_medicas}</td>
+                    <td class='text-center' style='background-color: #fff;'>{$em_conductuales}</td>
+                    <td class='text-center' style='background-color: #fff;'>{$mensajes_connect}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>";
+}
+?>
+
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid">
@@ -129,52 +177,35 @@
                                                     <td class='text-center' style='color: " . $school['color'] . ";'><b>" . $school['frecuencia'] . "</b></td>
                                                 </tr>
                                                 <tr>
-                                                    <td id='tblDetails" . ($a + 1) . "' colspan='9' style='background-color: #f2f2f2; display: none;'>
-                                                        <table class='table'>
-                                                            <thead>
-                                                                <tr>
-                                                                    <th colspan='5' class='text-center' style='background-color: #fff; color: #195ca6; height: 20px; padding: 5px;'>Administración</th>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>#</th>
-                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Calendario de Eventos<br>(50%)</th>
-                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Calendario de Timbres<br>(15%)</th>
-                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Alertas<br>(20%)</th>
-                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Mensajeria en Tiempo Real<br>(15%)</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class='text-center' style='background-color: #fff;'>Interacciones</td>
-                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['eventos'] . "</td>
-                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['timbres'] . "</td>
-                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['recursos_enviados'] . "</td>
-                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['mensajes_utp'] . "</td>
-                                                                </tr>
-                                                            <tbody>
-                                                        </table>
-
-                                                        <table class='table'>
-                                                            <thead>
-                                                                <tr>
-                                                                    <th colspan='4' class='text-center' style='background-color: #fff; color: #195ca6; height: 20px; padding: 5px;'>Salas</th>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>#</th>
-                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Alerta Medica<br>(15%)</th>
-                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Alerta Conductual<br>(15%)</th>
-                                                                    <th class='text-center' style='background-color: #195ca6; color: #fff;'>Mensaje Instantaneo<br>(70%)</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class='text-center' style='background-color: #fff;'>Interacciones</td>
-                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['emergencias_medicas'] . "</td>
-                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['emergencias_conductuales'] . "</td>
-                                                                    <td class='text-center' style='background-color: #fff;'>" . $school['mensajes_connect'] . "</td>
-                                                                </tr>
-                                                            <tbody>
-                                                        </table>
+                                                    <td id='tblDetails" . ($a + 1) . "' colspan='9' style='background-color: #f2f2f2; display: none; padding: 15px;'>
+                                                        <ul class='nav nav-tabs' id='tabs-school-" . ($a + 1) . "' role='tablist'>
+                                                            <li class='nav-item'><a class='nav-link active' data-toggle='pill' href='#tab-2024-" . ($a + 1) . "' role='tab'>2024</a></li>
+                                                            <li class='nav-item'><a class='nav-link' data-toggle='pill' href='#tab-2025-" . ($a + 1) . "' role='tab'>2025</a></li>
+                                                            <li class='nav-item'><a class='nav-link' data-toggle='pill' href='#tab-3-" . ($a + 1) . "' role='tab'>Mar</a></li>
+                                                            <li class='nav-item'><a class='nav-link' data-toggle='pill' href='#tab-4-" . ($a + 1) . "' role='tab'>Abr</a></li>
+                                                            <li class='nav-item'><a class='nav-link' data-toggle='pill' href='#tab-5-" . ($a + 1) . "' role='tab'>May</a></li>
+                                                            <li class='nav-item'><a class='nav-link' data-toggle='pill' href='#tab-6-" . ($a + 1) . "' role='tab'>Jun</a></li>
+                                                            <li class='nav-item'><a class='nav-link' data-toggle='pill' href='#tab-7-" . ($a + 1) . "' role='tab'>Jul</a></li>
+                                                            <li class='nav-item'><a class='nav-link' data-toggle='pill' href='#tab-8-" . ($a + 1) . "' role='tab'>Ago</a></li>
+                                                            <li class='nav-item'><a class='nav-link' data-toggle='pill' href='#tab-9-" . ($a + 1) . "' role='tab'>Sep</a></li>
+                                                            <li class='nav-item'><a class='nav-link' data-toggle='pill' href='#tab-10-" . ($a + 1) . "' role='tab'>Oct</a></li>
+                                                            <li class='nav-item'><a class='nav-link' data-toggle='pill' href='#tab-11-" . ($a + 1) . "' role='tab'>Nov</a></li>
+                                                            <li class='nav-item'><a class='nav-link' data-toggle='pill' href='#tab-12-" . ($a + 1) . "' role='tab'>Dic</a></li>
+                                                        </ul>
+                                                        <div class='tab-content' style='background-color: #fff; padding: 10px;'>" .
+                                                            renderSchoolTabContent($a + 1, '2024', $school['calendario_eventos_2024'], $school['calendario_timbres_2024'], $school['recursos_enviados_2024'], $school['mensajes_utp_2024'], $school['emergencias_medicas_2024'], $school['emergencias_conductuales_2024'], $school['mensajes_connect_2024'], true) .
+                                                            renderSchoolTabContent($a + 1, '2025', $school['calendario_eventos_2025'], $school['calendario_timbres_2025'], $school['recursos_enviados_2025'], $school['mensajes_utp_2025'], $school['emergencias_medicas_2025'], $school['emergencias_conductuales_2025'], $school['mensajes_connect_2025']) .
+                                                            renderSchoolTabContent($a + 1, '3', $school['calendario_eventos_3'], $school['calendario_timbres_3'], $school['recursos_enviados_3'], $school['mensajes_utp_3'], $school['emergencias_medicas_3'], $school['emergencias_conductuales_3'], $school['mensajes_connect_3']) .
+                                                            renderSchoolTabContent($a + 1, '4', $school['calendario_eventos_4'], $school['calendario_timbres_4'], $school['recursos_enviados_4'], $school['mensajes_utp_4'], $school['emergencias_medicas_4'], $school['emergencias_conductuales_4'], $school['mensajes_connect_4']) .
+                                                            renderSchoolTabContent($a + 1, '5', $school['calendario_eventos_5'], $school['calendario_timbres_5'], $school['recursos_enviados_5'], $school['mensajes_utp_5'], $school['emergencias_medicas_5'], $school['emergencias_conductuales_5'], $school['mensajes_connect_5']) .
+                                                            renderSchoolTabContent($a + 1, '6', $school['calendario_eventos_6'], $school['calendario_timbres_6'], $school['recursos_enviados_6'], $school['mensajes_utp_6'], $school['emergencias_medicas_6'], $school['emergencias_conductuales_6'], $school['mensajes_connect_6']) .
+                                                            renderSchoolTabContent($a + 1, '7', $school['calendario_eventos_7'], $school['calendario_timbres_7'], $school['recursos_enviados_7'], $school['mensajes_utp_7'], $school['emergencias_medicas_7'], $school['emergencias_conductuales_7'], $school['mensajes_connect_7']) .
+                                                            renderSchoolTabContent($a + 1, '8', $school['calendario_eventos_8'], $school['calendario_timbres_8'], $school['recursos_enviados_8'], $school['mensajes_utp_8'], $school['emergencias_medicas_8'], $school['emergencias_conductuales_8'], $school['mensajes_connect_8']) .
+                                                            renderSchoolTabContent($a + 1, '9', $school['calendario_eventos_9'], $school['calendario_timbres_9'], $school['recursos_enviados_9'], $school['mensajes_utp_9'], $school['emergencias_medicas_9'], $school['emergencias_conductuales_9'], $school['mensajes_connect_9']) .
+                                                            renderSchoolTabContent($a + 1, '10', $school['calendario_eventos_10'], $school['calendario_timbres_10'], $school['recursos_enviados_10'], $school['mensajes_utp_10'], $school['emergencias_medicas_10'], $school['emergencias_conductuales_10'], $school['mensajes_connect_10']) .
+                                                            renderSchoolTabContent($a + 1, '11', $school['calendario_eventos_11'], $school['calendario_timbres_11'], $school['recursos_enviados_11'], $school['mensajes_utp_11'], $school['emergencias_medicas_11'], $school['emergencias_conductuales_11'], $school['mensajes_connect_11']) .
+                                                            renderSchoolTabContent($a + 1, '12', $school['calendario_eventos_12'], $school['calendario_timbres_12'], $school['recursos_enviados_12'], $school['mensajes_utp_12'], $school['emergencias_medicas_12'], $school['emergencias_conductuales_12'], $school['mensajes_connect_12']) .
+                                                        "</div>
                                                     </td>
                                                 </tr>";
                                         }

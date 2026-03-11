@@ -40,6 +40,7 @@
             foreach ($schools['data']['data'] as $a => $school) {
                 $arrEvents = [
                     "calendario_eventos_2024" => 0,
+                    "calendario_eventos_2025" => 0,
                     "calendario_eventos_3" => 0,
                     "calendario_eventos_4" => 0,
                     "calendario_eventos_5" => 0,
@@ -55,6 +56,7 @@
 
                 $arrBells = [
                     "calendario_timbres_2024" => 0,
+                    "calendario_timbres_2025" => 0,
                     "calendario_timbres_3" => 0,
                     "calendario_timbres_4" => 0,
                     "calendario_timbres_5" => 0,
@@ -76,8 +78,9 @@
                         if ($event['data']['data']['event_type'] == 'Evento') {
                             // Search events per month
                             foreach ($arrEvents as $key => $value) {
-                                $pos = strpos($key, '2024');
-                                if ($pos !== false) {
+                                $pos2024 = strpos($key, '2024');
+                                $pos2025 = strpos($key, '2025');
+                                if ($pos2024 !== false || $pos2025 !== false) {
                                     $arrEvents[$key]++;
                                 }
                                 else {
@@ -91,8 +94,9 @@
                         elseif ($event['data']['data']['event_type'] == 'Timbre') {
                             // Search bells per month
                             foreach ($arrBells as $key => $value) {
-                                $pos = strpos($key, '2024');
-                                if ($pos !== false) {
+                                $pos2024 = strpos($key, '2024');
+                                $pos2025 = strpos($key, '2025');
+                                if ($pos2024 !== false || $pos2025 !== false) {
                                     $arrBells[$key]++;
                                 }
                                 else {
@@ -188,7 +192,7 @@
                     }
                     
                     if (strlen($keyEvent) > 19) {
-                        if ($columnEvent == '2024' || $columnEvent <= $month) {
+                        if ($columnEvent == '2024' || $columnEvent == '2025' || $columnEvent <= $month) {
                             $schools['data']['data'][$a]['frecuencia_'.$columnEvent] = $frecuency;
                             $schools['data']['data'][$a]['color_'.$columnEvent] = $color;
                         }
