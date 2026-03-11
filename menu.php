@@ -237,6 +237,55 @@
   })
 </script>
 
+<!-- Skeleton loader para páginas pesadas -->
+<div id="skeletonLoader" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.92); z-index:9999; justify-content:center; align-items:center; flex-direction:column;">
+  <div style="background:#fff; border:2px solid #195ca6; border-radius:10px; padding:40px 50px; text-align:center; box-shadow: 0 4px 20px rgba(25,92,166,0.15); max-width:360px; width:90%;">
+    <i class="fas fa-sync-alt fa-spin fa-3x" style="color:#195ca6;"></i>
+    <div style="margin-top:20px; color:#195ca6; font-weight:600; font-size:16px;">Espere unos instantes</div>
+    <div style="margin-top:8px; color:#666; font-size:13px;">Estamos contabilizando la información de los colegios...</div>
+    <div style="margin-top:20px;">
+      <div style="height:10px; background:#e8eef7; border-radius:5px; margin-bottom:8px; animation: skPulse 1.4s ease-in-out infinite;"></div>
+      <div style="height:10px; background:#e8eef7; border-radius:5px; margin-bottom:8px; width:80%; animation: skPulse 1.4s ease-in-out 0.2s infinite;"></div>
+      <div style="height:10px; background:#e8eef7; border-radius:5px; width:60%; animation: skPulse 1.4s ease-in-out 0.4s infinite;"></div>
+    </div>
+  </div>
+</div>
+<style>
+  @keyframes skPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+</style>
+<script>
+  // Mostrar skeleton al navegar a páginas pesadas
+  (function() {
+    var heavyPages = ['home', 'statistics'];
+    function showSkeleton() {
+      document.getElementById('skeletonLoader').style.display = 'flex';
+    }
+    // Detectar la página actual al cargar
+    var currentView = new URLSearchParams(window.location.search).get('v') || 'home';
+    // Mostrar skeleton al hacer click en links del menú que sean páginas pesadas
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      var match = href.match(/[?&]v=([^&]+)/);
+      if (match && heavyPages.indexOf(match[1]) !== -1) {
+        showSkeleton();
+      }
+    });
+    // También mostrar si se recarga la página estando en una de esas vistas
+    if (heavyPages.indexOf(currentView) !== -1) {
+      showSkeleton();
+      // Se oculta cuando el contenido ya está listo en el DOM
+      window.addEventListener('load', function() {
+        document.getElementById('skeletonLoader').style.display = 'none';
+      });
+    }
+  })();
+</script>
+
 <div id="loading" style="display: none;">
   <div class="card-body" style="background: rgba(0,0,0,0.5); position: fixed; width: 100%; height: 100%; z-index: 9999; top: 0; left: 0; display: flex; justify-content: center; align-items: center;">
     <div class="tab-content" id="custom-tabs-five-tabContent">
